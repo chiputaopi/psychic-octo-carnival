@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function accumulate(...numbers) {
+            if (numbers.length === 0) {
+                return 0;
+            }
+
+            return numbers.reduce((prev,item) => prev + item)
+        }
+
+        console.log(accumulate(1, 2, 3))
+        console.log(accumulate())
+    </script>
+</body>
+
+</html>

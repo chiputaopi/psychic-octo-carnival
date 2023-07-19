@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype.myCall=function(obj,...rest) {
+            obj=obj?Object(obj):window
+            const fn=Symbol("test")
+            obj[fn]=this
+            const res=obj[fn](...rest)
+            delete obj[fn]
+            return res
+        }
+        var a=1
+        const obj={
+            a:2
+        }
+        function fn1(b,c){
+            console.log(this.a,b,c)
+        }
+        fn1.myCall(obj,1,2)
+        // 写完还是不太懂QAQ
+    </script>
+</body>
+</html>
